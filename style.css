@@ -1,10 +1,9 @@
 /**
-Theme Name: Oxygen
-Theme URI: http://alienwp.com/themes/oxygen/
-Description: Oxygen is a minimalistic, mobile-optimized magazine theme with responsive layout. The main features include a featured content slider, custom front page template, 5 widget areas, and 3 menus.
-Version: 0.6.0
-Author: AlienWP
-Author URI: http://alienwp.com
+Theme Name: Depo
+Description: Depot theme for Wordpress developed based on theme Oxygen. Depo is a minimalistic, mobile-optimized magazine theme with responsive layout. The main features include a featured content slider, custom front page template, 5 widget areas, and 3 menus.
+Version: 1.0.0
+Author:
+Author URI:
 Tags: grid-layout, footer-widgets, blog, photography, threaded-comments, microformats, translation-ready, rtl-language-support, three-columns, right-sidebar, left-sidebar, custom-background, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -527,7 +526,7 @@ input[type="submit"]:hover { cursor: pointer }
 	width: 33.33333333333333%;	/* 250 / 750 = 0.3333333333333333 */
 }
 .wrap {
-	max-width: 940px;
+	max-width: 960px;
 	margin: 0 auto;
 	position: relative;
 }
