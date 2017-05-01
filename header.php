@@ -48,28 +48,28 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
 	<?php do_atomic( 'open_body' ); // oxygen_open_body ?>
 
-	<div id="container">
-		
-		<div class="wrap">
+	<div class="container">
+
+		<div class="row">
 
 			<?php do_atomic( 'before_header' ); // oxygen_before_header ?>
-	
+
 			<div id="header">
-	
+
 				<?php do_atomic( 'open_header' ); // oxygen_open_header ?>
-	
-					<div id="branding">
-						
-						<?php oxygen_site_title(); ?>
-						
-						<?php hybrid_site_description(); ?>
-						
-					</div><!-- #branding -->
-					
-					<?php get_sidebar( 'header' ); // Loads the sidebar-header.php template. ?>
-					
-					<?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>					
-	
+
+                <div class="col-md-4">
+
+                    <div id="branding">
+
+                        <?php oxygen_site_title(); ?>
+
+                    </div><!-- #branding -->
+
+                </div>
+
+                    <?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
+
 					<?php do_atomic( 'header' ); // oxygen_header ?>
 	
 				<?php do_atomic( 'close_header' ); // oxygen_close_header ?>

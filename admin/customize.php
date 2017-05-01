@@ -107,7 +107,8 @@ function oxygen_customize_register( $wp_customize ) {
 			'Arial' 		=> 'Arial',	
 			'Verdana' 		=> 'Verdana',
 			'Lucida Sans Unicode' => 'Lucida Sans Unicode',
-			'Droid Sans' 	=> 'Droid Sans'
+			'Droid Sans' 	=> 'Droid Sans',
+			'Open Sans' 	=> 'Open Sans'
 			),
 		'priority'  => 1
 	) ) );		
@@ -310,7 +311,10 @@ function oxygen_google_fonts() {
 				break;				
 			case 'Bitter':
 				wp_enqueue_style( 'font-bitter', 'http://fonts.googleapis.com/css?family=Bitter', false, 1.0, 'screen' );
-				break;			
+				break;
+            case 'Open Sans':
+                wp_enqueue_style( 'font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans', false, 1.0, 'screen' );
+                break;
 		}
 
 	} elseif ( hybrid_get_setting( 'oxygen_font_family' ) ) {
@@ -337,9 +341,12 @@ function oxygen_google_fonts() {
 			case 'Bitter':
 				wp_enqueue_style( 'font-bitter', 'http://fonts.googleapis.com/css?family=Bitter', false, 1.0, 'screen' );
 				break;
+            case 'Open Sans':
+                wp_enqueue_style( 'font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans', false, 1.0, 'screen' );
+                break;
 		}
 	} else {
-		wp_enqueue_style( 'font-abel', 'http://fonts.googleapis.com/css?family=Abel', false, 1.0, 'screen' );
+        wp_enqueue_style( 'font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans', false, 1.0, 'screen' );
 	}	
 }
 
