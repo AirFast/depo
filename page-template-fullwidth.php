@@ -10,11 +10,11 @@
 
 get_header(); // Loads the header.php template. ?>
 
-	<div class="aside">
+	<aside class="aside">
 		
 		<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 	
-	</div>
+	</aside>
 
 	<?php do_atomic( 'before_content' ); // oxygen_before_content ?>
 	

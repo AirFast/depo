@@ -508,14 +508,30 @@ input[type="submit"]:hover { cursor: pointer }
 #main {
 	clear: both;
 	width: 100%;
-	margin: 0 auto;
 	position: relative;
 }
 .page-template-fullwidth #content { width: 100%; }
 
 .aside {
+	font-family: 'Open Sans', sans-serif;
 	float: left;
-	width: 17.02127659574468%;	/* 160 / 940 = 0.1702127659574468 */	
+	width: 100%;
+	background-color: #00807f;
+	color: #fff;
+}
+.aside .category-title h1 {
+	font-size: 18px;
+	color: #fff;
+	text-transform: uppercase;
+	margin: 35px 0 30px;
+	text-align: center;
+}
+.aside .category-description {
+	margin: 0 25px;
+}
+.aside .category-description p {
+	font-size: 12px;
+	margin-bottom: 8px;
 }
 #sidebar-primary {
 	float: left;
@@ -538,6 +554,7 @@ input[type="submit"]:hover { cursor: pointer }
 	clear: both;
 	width: 100%;
 	float: left;
+	margin-bottom: 2px;
 }
 #branding {
 	float: left;
@@ -650,7 +667,7 @@ input[type="submit"]:hover { cursor: pointer }
 	top: 50%;
 	left: 0;
 	display: block;
-	box-shadow: 0px 0px 15px 20px rgba(0,0,0, .5);
+	box-shadow: 0px 0px 15px 20px rgba(0,0,0, .4);
 }
 #menu-primary li {
 	display: block;
@@ -1359,20 +1376,17 @@ input[type="submit"]:hover { cursor: pointer }
 #footer {
 	overflow: hidden;
 	clear: both;
-	max-width: 940px;
 	width: 100%;
-	margin: 0 auto;
-	padding: 26px 0 30px 0;
-	border-top: 1px solid #bbb;
+	margin: 0;
 	font-size: 0.9166666666666667em;
-	color: #aaa;
+	color: #fff;
 }
 #footer p { margin-bottom: 0; }
 #footer a { color: #888; }
 #footer a:hover { color: #333; }
 #footer-content {
 	float: left;
-	width: 30%;
+	width: 100%;
 }
 
 /*  Buttons (submit etc.)

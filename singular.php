@@ -11,13 +11,18 @@
 
 get_header(); // Loads the header.php template. ?>
 
-	<div class="aside">
-	
+	<aside class="aside">
+
+        <?php
+        echo $cat_id = get_query_var('cat');
+        echo $cur_cat = get_cat_ID( single_cat_title("",false) );
+        ?>
+
 		<?php get_template_part( 'menu', 'secondary' ); // Loads the menu-secondary.php template.  ?>
 		
 		<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 	
-	</div>
+	</aside>
 
 	<?php do_atomic( 'before_content' ); // oxygen_before_content ?>
 	
@@ -26,6 +31,12 @@ get_header(); // Loads the header.php template. ?>
 		<div id="content">
 	
 			<?php do_atomic( 'open_content' ); // oxygen_open_content ?>
+
+            <?php
+            $categories = get_the_category();
+            $category_id = $categories[0]->cat_ID;
+            echo category_description( $category_id );
+            ?>
 	
 			<div class="hfeed">
 	

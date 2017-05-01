@@ -29,19 +29,31 @@
 
 		<footer id="footer">
 
-			
-			<div id="footer-content" class="footer-content">
-            <p class="copyright">Copyright &#169; <?php echo date('Y'); ?> <p class="credit"> Powered by <a href="http://alienwp.com">Oxygen Theme</a>.</p>
-				
-			
-				
-			</div>
-				
-			<?php get_template_part( 'menu', 'subsidiary' ); // Loads the menu-subsidiary.php template.  ?>
+            <div class="container">
 
-			<?php do_atomic( 'footer' ); // oxygen_footer ?>
+                <div class="row">
 
-			<?php do_atomic( 'close_footer' ); // oxygen_close_footer ?>
+                    <div class="col-md-4">
+
+                        <div id="footer-content" class="footer-content">
+                            <p class="copyright">Copyright &#169; <?php echo date('Y'); ?> <p class="credit"> Powered by <a href="http://alienwp.com">Oxygen Theme</a>.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <?php get_template_part( 'menu', 'subsidiary' ); // Loads the menu-subsidiary.php template.  ?>
+
+                        <?php do_atomic( 'footer' ); // oxygen_footer ?>
+
+                        <?php do_atomic( 'close_footer' ); // oxygen_close_footer ?>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 		</footer><!-- #footer -->
 
