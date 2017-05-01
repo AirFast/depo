@@ -12,7 +12,7 @@ if ( has_nav_menu( 'primary' ) ) : ?>
 
 	<?php do_atomic( 'before_menu_primary' ); // oxygen_before_menu_primary ?>
 
-    <div class="col-md-8">
+    <div class="col-lg-8 col-md-8 col-sm-12">
 
         <?php if ( function_exists ( 'pll_the_languages' ) ): ?>
         <div id="language-switcher">

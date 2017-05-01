@@ -19,7 +19,7 @@
 
 				<?php do_atomic( 'close_main' ); // oxygen_close_main ?>
 
-		</div><!-- #main -->
+		</section><!-- #main -->
 
 		<?php do_atomic( 'after_main' ); // oxygen_after_main ?>
 
@@ -27,7 +27,7 @@
 
 		<?php do_atomic( 'before_footer' ); // oxygen_before_footer ?>
 
-		<div id="footer">
+		<footer id="footer">
 
 			
 			<div id="footer-content" class="footer-content">
@@ -43,7 +43,7 @@
 
 			<?php do_atomic( 'close_footer' ); // oxygen_close_footer ?>
 
-		</div><!-- #footer -->
+		</footer><!-- #footer -->
 
 		<?php do_atomic( 'after_footer' ); // oxygen_after_footer ?>
 		

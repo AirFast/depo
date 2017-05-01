@@ -48,17 +48,17 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
 	<?php do_atomic( 'open_body' ); // oxygen_open_body ?>
 
-	<div class="container">
+    <?php do_atomic( 'before_header' ); // oxygen_before_header ?>
 
-		<div class="row">
+    <header id="header">
 
-			<?php do_atomic( 'before_header' ); // oxygen_before_header ?>
+        <div class="container">
 
-			<div id="header">
+            <div class="row">
 
-				<?php do_atomic( 'open_header' ); // oxygen_open_header ?>
+                <?php do_atomic( 'open_header' ); // oxygen_open_header ?>
 
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-lg-offset-0 col-md-offset-0 col-sm-offset-3">
 
                     <div id="branding">
 
@@ -68,18 +68,22 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
                 </div>
 
-                    <?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
+                <?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
 
-					<?php do_atomic( 'header' ); // oxygen_header ?>
+                <?php do_atomic( 'header' ); // oxygen_header ?>
+
+                <?php do_atomic( 'close_header' ); // oxygen_close_header ?>
+
+            </div>
+
+        </div>
+
+    </header><!-- #header -->
 	
-				<?php do_atomic( 'close_header' ); // oxygen_close_header ?>
-	
-			</div><!-- #header -->
-	
-			<?php do_atomic( 'after_header' ); // oxygen_after_header ?>
-	
-			<?php do_atomic( 'before_main' ); // oxygen_before_main ?>
-	
-			<div id="main">
-	
-				<?php do_atomic( 'open_main' ); // oxygen_open_main ?>
+    <?php do_atomic( 'after_header' ); // oxygen_after_header ?>
+
+    <?php do_atomic( 'before_main' ); // oxygen_before_main ?>
+
+    <section id="main">
+
+    <?php do_atomic( 'open_main' ); // oxygen_open_main ?>
