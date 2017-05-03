@@ -36,7 +36,8 @@
                     <div class="col-md-4">
 
                         <div id="footer-content" class="footer-content">
-                            <p class="address">ул. Антоновича, 50, Киев 03150, Украина</p>
+                            <p class="address">ул. Антоновича, 50, Киев</p>
+                            <p class="country">03150, Украина</p>
                             <div class="social-networks">
                                 <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                 <a href="" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
