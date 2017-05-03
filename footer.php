@@ -36,7 +36,13 @@
                     <div class="col-md-4">
 
                         <div id="footer-content" class="footer-content">
-                            <p class="copyright">Copyright &#169; <?php echo date('Y'); ?> <p class="credit"> Powered by <a href="http://alienwp.com">Oxygen Theme</a>.</p>
+                            <p class="address">ул. Антоновича, 50, Киев 03150, Украина</p>
+                            <div class="social-networks">
+                                <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                                <a href="" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                            </div>
+                            <p class="copyright"><?php bloginfo( 'name' ); ?> &#169; <?php echo date('Y'); ?></p>
                         </div>
 
                     </div>
