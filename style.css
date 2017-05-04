@@ -853,43 +853,42 @@ input[type="submit"]:hover { cursor: pointer }
 -------------------------------------------------------------- */
 .featured-wrapper {
 	float: right;
-	margin-bottom: 30px;
-	width: 79.78723404255319%;	/* 750 / 940 = 0.79787234042553 */
+	width: 100%;
 	overflow: hidden;
 	position: relative;
+	background-color: #00807f;
 	z-index: 1;
 }
 #featured-content {
 	position: relative;
-	margin-bottom: 20px;
+	margin: 80px 35px;
+	display: inline-block;
 }
 .featured-post {
 	position: relative;
 	overflow: hidden;
 	float: left;
 }
-.featured-post h2.entry-title a {
+.featured-post .excerpt {
 	position: absolute;
-	bottom: 110px;
-	right: 0;
-	color: #111;
-	background: #fff;
-	padding: .4em 30px .4em 1.5em;
-	font-size: 1em;
-	text-transform: uppercase;
+	background-color: rgba(30,30,30, .5);
+	left: 30px;
+	right: 180px;
+	bottom: 10px;
+	font-size: 12px;
 }
-.featured-post:hover h2.entry-title a, .featured-post:hover .byline {
-	color: #fff;
-	background: #111;
-}
-.featured-post .byline {
+.featured-post .excerpt::before {
+	content: '';
+	display: block;
 	position: absolute;
-	bottom: 82px;
-	right: 0;
-	color: #999;
-	background: #fff;
-	padding: .4em 30px .4em 1.3em;
-	font-size: 0.9166666666666667em;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 100%;
+	background-color: #1e1e1e;
+}
+.featured-post .excerpt p {
+	margin: 8px 17px;
 }
 .featured-post a:hover { border-bottom: none; }
 .featured-thumbnail { max-width: 100%; }
@@ -903,26 +902,35 @@ input[type="submit"]:hover { cursor: pointer }
 .slider-nav {
 	display: block;
 	position: absolute;
-	bottom: 0;
-	width: 31px;
-	height: 28px;
-	background: #111 url(images/slider-nav-arrows.png) no-repeat;
-	background: rgba(0,0,0,.5) url(images/slider-nav-arrows.png) no-repeat;
-	color: #fff;
-	font-size: 1em;
-	z-index: 9;
+	top: 50%;
+	margin-top: -15px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: rgba(30,30,30, .5);
+	transition: .2s ease-in-out;
 	cursor: pointer;
-	text-indent: -9999em;
+	z-index: 10;
+}
+.slider-nav .fa {
+	font-size: 25px;
+	line-height: 30px;
+	vertical-align: middle;
+	color: rgba(255,255,255, .5);
 }
 #slider-prev {
-	left: 0;
-	background-position: 7px -21px;
+	left: 6px;
 }
 #slider-next {
-	right: 0;
-	background-position: 7px 11px;
+	right: 6px;
 }
-.slider-nav:hover { background-color: #000; }
+#slider-prev .fa {
+	margin-left: 9px;
+}
+#slider-next .fa {
+	margin-left: 12px;
+}
+.slider-nav:hover { background-color: rgba(30,30,30, .8); }
 
 /*  Featured Content (slider) Navigation
 -------------------------------------------------------------- */

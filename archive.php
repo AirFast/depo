@@ -28,10 +28,7 @@ get_header(); // Loads the header.php template. ?>
 
                     <div class="category-description">
 
-                        <?php
-                            $cat_id = get_query_var('cat');
-                            echo category_description( $cat_id );
-                        ?>
+                        <?php echo category_description( $cat_id ); ?>
 
                     </div>
 
@@ -44,6 +41,8 @@ get_header(); // Loads the header.php template. ?>
             </div>
 
             <div class="col-md-8">
+
+                <?php get_template_part( 'featured', 'content' ); ?>
 
                 <div class="content-wrap">
 

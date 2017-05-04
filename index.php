@@ -19,11 +19,6 @@ get_header(); // Loads the header.php template. ?>
 
                 <aside class="aside">
 
-                    <?php
-                        //echo $cat_id = get_query_var('cat');
-                        echo $cur_cat = get_cat_ID( single_cat_title("",false) );
-                    ?>
-
                     <?php get_template_part( 'menu', 'secondary' ); // Loads the menu-secondary.php template.  ?>
 
                     <?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
