@@ -373,4 +373,69 @@ function oxygen_remove_theme_settings_submenu() {
 	remove_submenu_page( 'themes.php', 'theme-settings' );
 }
 
+add_theme_support( 'post-formats', array(
+    'gallery'
+) );
+
+// register custom post type 'add_gallery_post_type'
+add_action( 'init', 'add_gallery_post_type' );
+function add_gallery_post_type() {
+    register_post_type( 'zm_gallery',
+        array(
+            'labels' => array(
+                'name' => __( 'Gallery' ),
+                'singular_name' => __( 'Gallery' ),
+                'all_items' => __( 'All Images')
+            ),
+            'public' => true,
+            'menu_icon'   => 'dashicons-images-alt',
+            'has_archive' => false,
+            'exclude_from_search' => true,
+            'rewrite' => array('slug' => 'gallery-item'),
+            'supports' => array( 'title', 'thumbnail' ),
+            'menu_position' => 4,
+            'show_in_admin_bar'   => false,
+            'show_in_nav_menus'   => false,
+            'publicly_queryable'  => false,
+            'query_var'           => false
+        )
+    );
+}
+
+function zm_get_backend_preview_thumb($post_ID) {
+    $post_thumbnail_id = get_post_thumbnail_id($post_ID);
+    if ($post_thumbnail_id) {
+        $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'thumbnail');
+        return $post_thumbnail_img[0];
+    }
+}
+
+function zm_preview_thumb_column_head($defaults) {
+    $defaults['featured_image'] = 'Image';
+    return $defaults;
+}
+add_filter('manage_posts_columns', 'zm_preview_thumb_column_head');
+
+function zm_preview_thumb_column($column_name, $post_ID) {
+    if ($column_name == 'featured_image') {
+        $post_featured_image = zm_get_backend_preview_thumb($post_ID);
+        if ($post_featured_image) {
+            echo '<img src="' . $post_featured_image . '" />';
+        }
+    }
+}
+add_action('manage_posts_custom_column', 'zm_preview_thumb_column', 10, 2);
+
+add_action( 'init', 'wp_add_gallery_cats' );
+function wp_add_gallery_cats()
+{
+    register_taxonomy_for_object_type( 'category', 'zm_gallery' );
+}
+
+add_action('do_meta_boxes', 'wpse33063_move_meta_box');
+
+function wpse33063_move_meta_box(){
+    remove_meta_box( 'postimagediv', 'zm_gallery', 'side' );
+    add_meta_box('postimagediv', __('Featured Image'), 'post_thumbnail_meta_box', 'zm_gallery', 'normal', 'high');
+}
 ?>
