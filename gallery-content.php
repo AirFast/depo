@@ -31,7 +31,7 @@ $postCount = 0; ?>
 
                         <div class="first-img">
 
-                            <?php the_post_thumbnail( 'large' ); ?>
+                            <img class="img-responsive" src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="<?php the_title();?>">
 
                         </div>
 
@@ -39,7 +39,9 @@ $postCount = 0; ?>
 
                         <div class="secondary-img">
 
-                            <?php the_post_thumbnail( 'large' ); ?>
+                            <img class="img-responsive" src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="<?php the_title();?>">
+
+<!--                            --><?php //the_post_thumbnail( 'large', 'class=img-responsive' ); ?>
 
                         </div>
 
