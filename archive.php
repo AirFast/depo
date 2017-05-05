@@ -40,7 +40,7 @@ get_header(); // Loads the header.php template. ?>
 
             </div>
 
-            <?php get_template_part( 'featured', 'content' ); ?>
+            <?php get_template_part( 'slider', 'content' ); ?>
 
             <?php get_template_part( 'gallery', 'content' ); ?>
 

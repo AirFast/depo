@@ -6,7 +6,13 @@
 
 $cat_id = get_query_var('cat');
 
-$args = array( 'cat' => $cat_id, 'posts_per_page' => 6, 'meta_key' => '_oxygen_post_location', 'meta_value' => 'featured', 'post__not_in' => get_option( 'sticky_posts' ) );
+$args = array(
+    'cat' => $cat_id,
+    'meta_key' => '_oxygen_post_location',
+    'meta_value' => 'slider',
+    'post__not_in' => get_option( 'sticky_posts' )
+);
+
 $loop = new WP_Query( $args );
 		
 if ( $loop->have_posts() ) : ?>
@@ -39,5 +45,7 @@ if ( $loop->have_posts() ) : ?>
         </div><!-- .featured-wrapper-->
 
     </div>
+
+    <?php wp_reset_postdata(); ?>
 
 <?php endif; ?>

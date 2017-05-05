@@ -306,7 +306,7 @@ function oxygen_breadcrumb_trail_args( $args ) {
  *
  */
 function oxygen_create_metabox() {
-    add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'post', 'side', 'low' );            
+    add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', ['post', 'oxygen_gallery'], 'advanced', 'default' );
 }
              
 function oxygen_metabox() {
@@ -316,8 +316,9 @@ function oxygen_metabox() {
 	/* Retrieve metadata values if they already exist. */
 	$oxygen_post_location = get_post_meta( $post->ID, '_oxygen_post_location', true ); ?>	
 	
-	<p><label><input type="radio" name="oxygen_post_location" value="featured" <?php echo esc_attr( $oxygen_post_location ) == 'featured' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Featured', 'oxygen' ) ?></label></p>
+	<p><label><input type="radio" name="oxygen_post_location" value="slider" <?php echo esc_attr( $oxygen_post_location ) == 'slider' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Slider', 'oxygen' ) ?></label></p>
 	<p><label><input type="radio" name="oxygen_post_location" value="primary" <?php echo esc_attr( $oxygen_post_location ) == 'primary' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Primary', 'oxygen' ) ?></label></p>
+	<p><label><input type="radio" name="oxygen_post_location" value="gallery" <?php echo esc_attr( $oxygen_post_location ) == 'gallery' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Gallery', 'oxygen' ) ?></label></p>
 	<p><label><input type="radio" name="oxygen_post_location" value="secondary" <?php echo esc_attr( $oxygen_post_location ) == 'secondary' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Secondary', 'oxygen' ) ?></label></p>
 	<p><label><input type="radio" name="oxygen_post_location" value="no-display" <?php echo esc_attr( $oxygen_post_location ) == 'no-display' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Do not display', 'oxygen' ) ?></label></p>	
 		
@@ -373,19 +374,15 @@ function oxygen_remove_theme_settings_submenu() {
 	remove_submenu_page( 'themes.php', 'theme-settings' );
 }
 
-add_theme_support( 'post-formats', array(
-    'gallery'
-) );
-
 // register custom post type 'add_gallery_post_type'
 add_action( 'init', 'add_gallery_post_type' );
 function add_gallery_post_type() {
-    register_post_type( 'zm_gallery',
+    register_post_type( 'oxygen_gallery',
         array(
             'labels' => array(
                 'name' => __( 'Gallery' ),
                 'singular_name' => __( 'Gallery' ),
-                'all_items' => __( 'All Images')
+                'all_items' => __( 'All Images' ),
             ),
             'public' => true,
             'menu_icon'   => 'dashicons-images-alt',
@@ -402,7 +399,7 @@ function add_gallery_post_type() {
     );
 }
 
-function zm_get_backend_preview_thumb($post_ID) {
+function oxygen_get_backend_preview_thumb($post_ID) {
     $post_thumbnail_id = get_post_thumbnail_id($post_ID);
     if ($post_thumbnail_id) {
         $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'thumbnail');
@@ -410,32 +407,32 @@ function zm_get_backend_preview_thumb($post_ID) {
     }
 }
 
-function zm_preview_thumb_column_head($defaults) {
-    $defaults['featured_image'] = 'Image';
+function oxygen_preview_thumb_column_head($defaults) {
+    $defaults['featured_image'] = __(  'Image' );
     return $defaults;
 }
-add_filter('manage_posts_columns', 'zm_preview_thumb_column_head');
+add_filter('manage_oxygen_gallery_posts_columns', 'oxygen_preview_thumb_column_head');
 
-function zm_preview_thumb_column($column_name, $post_ID) {
+function oxygen_preview_thumb_column($column_name, $post_ID) {
     if ($column_name == 'featured_image') {
-        $post_featured_image = zm_get_backend_preview_thumb($post_ID);
+        $post_featured_image = oxygen_get_backend_preview_thumb($post_ID);
         if ($post_featured_image) {
             echo '<img src="' . $post_featured_image . '" />';
         }
     }
 }
-add_action('manage_posts_custom_column', 'zm_preview_thumb_column', 10, 2);
+add_action('manage_posts_custom_column', 'oxygen_preview_thumb_column', 10, 2);
 
 add_action( 'init', 'wp_add_gallery_cats' );
 function wp_add_gallery_cats()
 {
-    register_taxonomy_for_object_type( 'category', 'zm_gallery' );
+    register_taxonomy_for_object_type( 'category', 'oxygen_gallery' );
 }
 
-add_action('do_meta_boxes', 'wpse33063_move_meta_box');
+add_action('do_meta_boxes', 'oxygen_move_meta_box');
 
-function wpse33063_move_meta_box(){
-    remove_meta_box( 'postimagediv', 'zm_gallery', 'side' );
-    add_meta_box('postimagediv', __('Featured Image'), 'post_thumbnail_meta_box', 'zm_gallery', 'normal', 'high');
+function oxygen_move_meta_box(){
+    remove_meta_box( 'postimagediv', 'oxygen_gallery', 'side' );
+    add_meta_box('postimagediv', __('Featured Image'), 'post_thumbnail_meta_box', 'oxygen_gallery', 'normal', 'high');
 }
 ?>

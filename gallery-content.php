@@ -5,39 +5,54 @@
  */
 
 $cat_id = get_query_var('cat');
+
 $args = array(
-    'post_type'      => 'zm_gallery',
-    'posts_per_page' => -1,
-    'cat'            => $cat_id,
+    'cat' => $cat_id,
+    'post_type' => 'oxygen_gallery',
+    'meta_key' => '_oxygen_post_location',
+    'meta_value' => 'gallery',
+    'post__not_in' => get_option( 'sticky_posts' )
 );
-$query = new WP_Query( $args );
-?>
-<div class="col-md-8">
 
-    <div class="gallery-wrapper">
+$loop = new WP_Query( $args );
 
-        <?php if ( $query->have_posts() ) : $postCount = 0; while ( $query->have_posts() ) : $query->the_post(); $postCount++; ?>
+if ( $loop->have_posts() ) :
+$postCount = 0; ?>
 
-            <?php if ($postCount == 1) : ?>
+    <div class="col-md-8">
 
-                    <div class="first-img">
+        <div class="gallery-wrapper">
 
-                        <?php the_post_thumbnail( 'large' ); ?>
+            <div id="gallery-content">
 
-                    </div>
+                <?php while ( $loop->have_posts() ) : $loop->the_post(); $postCount++; ?>
 
-            <?php else : ?>
+                    <?php if ($postCount == 1) : ?>
 
-                    <div class="secondary-img">
+                        <div class="first-img">
 
-                        <?php the_post_thumbnail( 'large' ); ?>
+                            <?php the_post_thumbnail( 'large' ); ?>
 
-                    </div>
+                        </div>
 
-            <?php endif; ?>
+                    <?php else : ?>
 
-        <?php endwhile; endif; ?>
+                        <div class="secondary-img">
+
+                            <?php the_post_thumbnail( 'large' ); ?>
+
+                        </div>
+
+                    <?php endif; ?>
+
+                <?php endwhile; ?>
+
+            </div><!-- #gallery-content -->
+
+        </div><!-- .gallery-wrapper-->
 
     </div>
 
-</div>
+    <?php wp_reset_postdata(); ?>
+
+<?php endif; ?>
