@@ -32,6 +32,21 @@ get_header(); // Loads the header.php template. ?>
 
                     </div>
 
+                    <?php
+                    $args = array(
+                        'cat' => $cat_id,
+                        'post_type' => 'oxygen_gallery',
+                    );
+
+                    $loop = new WP_Query( $args );
+                    ?>
+
+                    <?php if ( $loop->have_posts() ) : ?>
+
+                        <p>ТАК</p>
+
+                    <?php endif; ?>
+
 		            <?php get_template_part( 'menu', 'secondary' ); // Loads the menu-secondary.php template.  ?>
 		
 		            <?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>

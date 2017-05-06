@@ -435,4 +435,5 @@ function oxygen_move_meta_box(){
     remove_meta_box( 'postimagediv', 'oxygen_gallery', 'side' );
     add_meta_box('postimagediv', __('Featured Image'), 'post_thumbnail_meta_box', 'oxygen_gallery', 'normal', 'high');
 }
+
 ?>
