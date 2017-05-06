@@ -25,10 +25,10 @@ add_action( 'after_setup_theme', 'oxygen_theme_setup' );
 function oxygen_theme_setup() {
 	
 	/* Admin functionality */
-	if ( is_admin() ) {
-		// Add Theme Documentation Page
-		require_once( get_template_directory() . '/admin/getting-started/getting-started.php' );
-	}
+//	if ( is_admin() ) {
+//		// Add Theme Documentation Page
+//		require_once( get_template_directory() . '/admin/getting-started/getting-started.php' );
+//	}
 
 	/* Get action/filter hook prefix. */
 	$prefix = hybrid_get_prefix();

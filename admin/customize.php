@@ -72,11 +72,11 @@ function oxygen_customize_register( $wp_customize ) {
 	) );
 
 	/* Setting: Fancybox */
-	$wp_customize->add_setting( 'oxygen_fancybox_enable' , array(
-		'default'     => false,
-		'capability'  => 'edit_theme_options',
-		'sanitize_callback' => 	'oxygen_fancybox_enable_sanitize'
-	) );		
+//	$wp_customize->add_setting( 'oxygen_fancybox_enable' , array(
+//		'default'     => false,
+//		'capability'  => 'edit_theme_options',
+//		'sanitize_callback' => 	'oxygen_fancybox_enable_sanitize'
+//	) );
 
 	/* Setting: Custom CSS */
 	$wp_customize->add_setting( 'oxygen_custom_css' , array(
@@ -148,13 +148,13 @@ function oxygen_customize_register( $wp_customize ) {
 	) ) );
 
 	/* Control: Fancybox */
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'oxygen_fancybox_enable', array(
-		'label'     => __( 'Fancybox', 'oxygen' ),
-		'section'   => 'oxygen_misc',
-		'settings'  => 'oxygen_fancybox_enable',
-		'type' => 'checkbox',
-		'priority'  => 1
-	) ) );			
+//	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'oxygen_fancybox_enable', array(
+//		'label'     => __( 'Fancybox', 'oxygen' ),
+//		'section'   => 'oxygen_misc',
+//		'settings'  => 'oxygen_fancybox_enable',
+//		'type' => 'checkbox',
+//		'priority'  => 1
+//	) ) );
 
 	/* Control: Custom CSS */
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'oxygen-custom-css', array(
@@ -218,13 +218,13 @@ function oxygen_slider_timeout_sanitize( $setting, $object ) {
  * Sanitize the "Fancybox" setting.
  * 
  */
-function oxygen_fancybox_enable_sanitize( $setting, $object ) {
-
-	if ( 'oxygen_fancybox_enable' == $object->id )
-		$setting = wp_filter_nohtml_kses( $setting );
-
-	return $setting;
-}
+//function oxygen_fancybox_enable_sanitize( $setting, $object ) {
+//
+//	if ( 'oxygen_fancybox_enable' == $object->id )
+//		$setting = wp_filter_nohtml_kses( $setting );
+//
+//	return $setting;
+//}
 
 /**
  * Sanitize the "Custom CSS" setting.
