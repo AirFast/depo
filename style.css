@@ -16,6 +16,30 @@ Domain Path: /languages/
 @import "libs/bootstrap-grid/bootstrap-grid.css"; /* bootstrap-grid */
 @import "libs/font-awesome/font-awesome.min.css"; /* font-awesome */
 
+/* Add flexbox class to bootstrap-grid
+-------------------------------------------------------------- */
+.row.is-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
 /* Normalize
 -------------------------------------------------------------- */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
@@ -521,7 +545,7 @@ input[type="submit"]:hover { cursor: pointer }
 	font-family: 'Open Sans', sans-serif;
 	float: left;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	padding-bottom: 100px;
 	background-color: #00807f;
 	color: #fff;
@@ -530,7 +554,7 @@ input[type="submit"]:hover { cursor: pointer }
 	font-size: 18px;
 	color: #fff;
 	text-transform: uppercase;
-	margin: 35px 0 30px;
+	margin: 35px 0 20px;
 	text-align: center;
 }
 .aside .category-description {

@@ -41,8 +41,6 @@ $postCount = 0; ?>
 
                             <img class="img-responsive" src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="<?php the_title();?>">
 
-<!--                            --><?php //the_post_thumbnail( 'large', 'class=img-responsive' ); ?>
-
                         </div>
 
                     <?php endif; ?>
