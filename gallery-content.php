@@ -49,6 +49,10 @@ $postCount = 0; ?>
 
             </div><!-- #gallery-content -->
 
+            <div class="btn more-content">
+                <button id="button">Більше фото</button>
+            </div>
+
         </div><!-- .gallery-wrapper-->
 
     </div>

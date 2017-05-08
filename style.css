@@ -986,7 +986,7 @@ input[type="submit"]:hover { cursor: pointer }
 /*  Gallery Content
 -------------------------------------------------------------- */
 .gallery-wrapper {
-	padding: 80px 35px;
+	padding: 80px 35px 45px;
 	background-color: #00807f;
 	display: inline-block;
 }
@@ -1022,6 +1022,32 @@ input[type="submit"]:hover { cursor: pointer }
 
 .gallery-wrapper .secondary-img:nth-child(even) {
 	padding-right: 5px;
+}
+.gallery-wrapper #gallery-content {
+	display: inline-block;
+	clear: both;
+}
+.gallery-wrapper .btn {
+	display: block;
+}
+.gallery-wrapper .btn.more-content{
+	margin-top: 40px;
+	text-align: center;
+}
+.gallery-wrapper .btn #button {
+	background: none;
+	border: 1px solid rgba(255,255,255, .5);
+	padding: 10px 20px;
+	line-height: 1;
+	font-size: 10px;
+	color: rgba(255,255,255, .5);
+	text-transform: uppercase;
+	transition: .25s ease-in-out;
+}
+.gallery-wrapper .btn #button:hover,
+.gallery-wrapper .btn #button:focus{
+	border: 1px solid rgba(255,255,255, 1);
+	color: rgba(255,255,255, 1);
 }
 
 /* Home 
