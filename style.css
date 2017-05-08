@@ -1053,12 +1053,63 @@ input[type="submit"]:hover { cursor: pointer }
 /*  Standard Content
 -------------------------------------------------------------- */
 .standard-wrapper {
-	padding: 35px 35px 55px;
+	padding: 35px 35px 50px;
 	background-color: #00807f;
 	display: inline-block;
 }
+.standard-wrapper .standard-post {
+	display: inline-block;
+	padding: 30px 0;
+	border-bottom: 1px solid #fff;
+	clear: both;
+}
+.standard-wrapper .standard-post:first-child {
+	padding-top: 0;
+}
+.standard-wrapper .standard-post:last-child {
+	padding-bottom: 0;
+	border: none;
+}
+.standard-wrapper .standard-post .standard-post-img {
+	float: left;
+	width: 35%;
+	height: 260px;
+	display: inline-flex;
+	position: relative;
+}
+.standard-wrapper .standard-post .standard-post-content {
+	float: left;
+	width: 65%;
+	position: relative;
+}
+.standard-wrapper .standard-post .standard-post-content h2 {
+	font-size: 18px;
+	color: #fff;
+	line-height: 1;
+	text-transform: uppercase;
+}
+.standard-wrapper .standard-post .standard-post-content p {
+	font-size: 12px;
+	margin-bottom: 25px;
+}
+.standard-wrapper .standard-post .standard-post-content p:last-child {
+	margin-bottom: 0;
+}
+.standard-wrapper .standard-post:nth-child(odd) .standard-post-img {
+	left: 65%;
+}
+.standard-wrapper .standard-post:nth-child(odd) .standard-post-content {
+	padding-right: 30px;
+	right: 35%;
+}
+.standard-wrapper .standard-post:nth-child(even) .standard-post-img {
 
-/* Home 
+}
+.standard-wrapper .standard-post:nth-child(even) .standard-post-content {
+	padding-left: 30px;
+}
+
+/* Home
 -------------------------------------------------------------- */
 .section-title {
 	float: left;
