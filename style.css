@@ -1042,7 +1042,7 @@ input[type="submit"]:hover { cursor: pointer }
 	font-size: 10px;
 	color: rgba(255,255,255, .5);
 	text-transform: uppercase;
-	transition: .25s ease-in-out;
+	transition: .2s ease-in-out;
 }
 .gallery-wrapper .btn #button:hover,
 .gallery-wrapper .btn #button:focus{

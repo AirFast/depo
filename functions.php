@@ -317,8 +317,9 @@ function oxygen_metabox() {
 	$oxygen_post_location = get_post_meta( $post->ID, '_oxygen_post_location', true ); ?>	
 	
 	<p><label><input type="radio" name="oxygen_post_location" value="slider" <?php echo esc_attr( $oxygen_post_location ) == 'slider' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Slider', 'oxygen' ) ?></label></p>
+    <p><label><input type="radio" name="oxygen_post_location" value="gallery" <?php echo esc_attr( $oxygen_post_location ) == 'gallery' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Gallery', 'oxygen' ) ?></label></p>
+    <p><label><input type="radio" name="oxygen_post_location" value="standard" <?php echo esc_attr( $oxygen_post_location ) == 'standard' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Standard', 'oxygen' ) ?></label></p>
 	<p><label><input type="radio" name="oxygen_post_location" value="primary" <?php echo esc_attr( $oxygen_post_location ) == 'primary' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Primary', 'oxygen' ) ?></label></p>
-	<p><label><input type="radio" name="oxygen_post_location" value="gallery" <?php echo esc_attr( $oxygen_post_location ) == 'gallery' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Gallery', 'oxygen' ) ?></label></p>
 	<p><label><input type="radio" name="oxygen_post_location" value="secondary" <?php echo esc_attr( $oxygen_post_location ) == 'secondary' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Secondary', 'oxygen' ) ?></label></p>
 	<p><label><input type="radio" name="oxygen_post_location" value="no-display" <?php echo esc_attr( $oxygen_post_location ) == 'no-display' ? 'checked="checked"' : '' ?> /> <?php echo __( 'Do not display', 'oxygen' ) ?></label></p>	
 		

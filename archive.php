@@ -59,6 +59,8 @@ get_header(); // Loads the header.php template. ?>
 
             <?php get_template_part( 'gallery', 'content' ); ?>
 
+            <?php get_template_part( 'standard', 'content' ); ?>
+
         </div>
 
     </div>
