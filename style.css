@@ -1050,6 +1050,14 @@ input[type="submit"]:hover { cursor: pointer }
 	color: rgba(255,255,255, 1);
 }
 
+/*  Standard Content
+-------------------------------------------------------------- */
+.standard-wrapper {
+	padding: 35px 35px 55px;
+	background-color: #00807f;
+	display: inline-block;
+}
+
 /* Home 
 -------------------------------------------------------------- */
 .section-title {
