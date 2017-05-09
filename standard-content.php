@@ -15,8 +15,7 @@ $args = array(
 
 $loop = new WP_Query( $args );
 
-if ( $loop->have_posts() ) :
-$postCount = 0; ?>
+if ( $loop->have_posts() ) : ?>
 
     <div class="col-md-8">
 
