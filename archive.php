@@ -22,7 +22,7 @@ get_header(); // Loads the header.php template. ?>
 
                     <div class="category-title">
 
-                        <h1><?php echo get_cat_name( $cat_id );?></h1>
+                        <h1><?php echo get_cat_name( $cat_id ); ?></h1>
 
                     </div>
 

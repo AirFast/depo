@@ -74,5 +74,39 @@
 	
 	<?php wp_footer(); // wp_footer ?>
 
+    <?php if ( is_page_template( 'page-contacts.php' ) ) : ?>
+
+        <script>
+            // Google map
+            function initMap() {
+                var LatLng = {lat: 50.511599, lng: 30.509396};
+                var map = new google.maps.Map(document.getElementById('#page-map'), {
+                    zoom: 17,
+                    center: LatLng
+                });
+//                var contentString = '<div id="content">'+
+//                    '<h1 id="firstHeading" class="firstHeading">Il Gatto Rosso</h1>'+
+//                    '<div id="bodyContent">'+
+//                    '<img class="img-responsive" src="img/about/main-slider-about/slide-2.jpg" alt="Ресторан \'Il Gatto Rosso\'" title="Ресторан \'Il Gatto Rosso\'">'+
+//                    '<p><b>Il Gatto Rosso</b>, итальянская кухня для всех и каждого.</p>'+
+//                    '</div>'+
+//                    '</div>';
+//                var infowindow = new google.maps.InfoWindow({
+//                    content: contentString
+//                });
+                var marker = new google.maps.Marker({
+                    position: LatLng,
+                    map: map,
+                    title: 'Ресторан \"Il Gatto Rosso\"'
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwni-fw_bVIcbUlGlAthGMxIJ8BdZICPk&callback=initMap" async defer></script>
+
+    <?php endif; ?>
+
 </body>
 </html>
