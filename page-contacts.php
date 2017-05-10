@@ -21,7 +21,15 @@ get_header(); // Loads the header.php template. ?>
 
                 <div class="page-description">
 
-                    <?php  ?>
+                    <?php if ( have_posts() ) : ?>
+
+                        <?php while ( have_posts() ) : the_post(); ?>
+
+                            <?php echo get_post_meta($post->ID, 'departments_marketing', true); ?>
+
+                        <?php endwhile; ?>
+
+                    <?php endif; ?>
 
                 </div>
 
