@@ -58,7 +58,7 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
                 <?php do_atomic( 'open_header' ); // oxygen_open_header ?>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-lg-offset-0 col-md-offset-0 col-sm-offset-3">
+                <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-1 col-xs-offset-0">
 
                     <div id="branding">
 

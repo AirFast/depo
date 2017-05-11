@@ -9,7 +9,7 @@ get_header(); // Loads the header.php template. ?>
 
     <div class="row is-flex">
 
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-1 col-xs-offset-0">
 
             <aside class="aside">
 
@@ -92,7 +92,7 @@ get_header(); // Loads the header.php template. ?>
 
         </div>
 
-        <div class="col-md-8">
+        <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-1 col-xs-offset-0">
 
             <div class="page-wrap">
 

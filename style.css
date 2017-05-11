@@ -1176,6 +1176,9 @@ input[type="submit"]:hover { cursor: pointer }
 	color: #fff;
 	margin-bottom: 25px;
 }
+.aside .page-description .department-box:last-child {
+	margin: 0;
+}
 .aside .page-description .department-box h3 {
 	margin: 0 0 5px;
 	font-size: 12px;

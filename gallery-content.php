@@ -19,7 +19,7 @@ $loop = new WP_Query( $args );
 if ( $loop->have_posts() ) :
 $postCount = 0; ?>
 
-    <div class="col-md-8">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-0 col-md-offset-0 col-sm-offset-1 col-xs-offset-0">
 
         <div class="gallery-wrapper">
 
