@@ -493,7 +493,7 @@ class oxygenMetaBox {
 						<th scope="row"><label for="<?php echo $this->prefix .$param['id'] ?>"><?php echo $param['title'] ?></label></th>
 						<td>
 							<label for="<?php echo $this->prefix .$param['id'] ?>">
-							<select name="<?php echo $this->prefix .$param['id'] ?>" id="<?php echo $this->prefix .$param['id'] ?>"><option>...</option><?php
+							<select name="<?php echo $this->prefix .$param['id'] ?>" id="<?php echo $this->prefix .$param['id'] ?>"><option><?php echo $param['std']; ?></option><?php
 								foreach($param['args'] as $val=>$name){
 									?><option value="<?php echo $val ?>"<?php echo ( $value == $val ) ? ' selected="selected"' : '' ?>><?php echo $name ?></option><?php
 								}
@@ -529,59 +529,217 @@ class oxygenMetaBox {
 $options = array(
 	array( // первый метабокс
 		'id'	=>	'departments', // ID метабокса, а также префикс названия произвольного поля
-		'name'	=>	__('Контактна інформація по відділах'), // заголовок метабокса
+		'name'	=>	__('Контактна інформація відділів', 'oxygen'), // заголовок метабокса
 		'post'	=>	array('page'), // типы постов для которых нужно отобразить метабокс
 		'pos'	=>	'normal', // расположение, параметр $context функции add_meta_box()
 		'pri'	=>	'high', // приоритет, параметр $priority функции add_meta_box()
 		'cap'	=>	'edit_posts', // какие права должны быть у пользователя
 		'args'	=>	array(
-			array(
-				'id'			=>	'marketing', // атрибуты name и id без префикса, например с префиксом будет meta1_field_1
-				'title'			=>	'Текст', // лейбл поля
-				'type'			=>	'textarea', // тип, в данном случае обычное текстовое поле
-				'placeholder'	=>	'плейсхолдер, например введите email', // атрибут placeholder
-				'desc'			=>	'пример использования текстового поля ввода в метабоксе', // что-то типа пояснения, подписи к полю
+
+		    array(
+				'id'			=>	'marketing_name',
+				'title'			=>	__('Назва відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть назву відділу', 'oxygen'),
 				'std'           =>  '',
 				'cap'			=>	'edit_posts'
 			),
 			array(
-				'id'			=>	'terms',
-				'title'			=>	'Чекбокс',
-				'type'			=>	'checkbox', // чекбокс
-				'desc'			=>	'пример чекбокса',
+				'id'			=>	'marketing_email',
+				'title'			=>	__('E-mail відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть email відділу', 'oxygen'),
+				'std'           =>  '',
 				'cap'			=>	'edit_posts'
 			),
 			array(
-				'id'			=>	'textfield',
-				'title'			=>	'Текстовое поле',
-				'type'			=>	'textarea', // большое текстовое поле
-				'placeholder'		=>	'сюда тоже можно забацать плейсхолдер',
-				'desc'			=>	'пример использования большого текстового поля ввода в метабоксе',
+				'id'			=>	'marketing_phone',
+				'title'			=>	__('Телефон відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть номер телефона відділу', 'oxygen'),
+				'std'           =>  '',
 				'cap'			=>	'edit_posts'
 			),
 			array(
-				'id'			=>	'select1',
-				'title'			=>	'Выпадающий список',
-				'type'			=>	'select', // выпадающий список
-				'desc'			=>	'тут тоже можно написать пояснение к полю, значения же задаются через ассоциативный массив',
-				'cap'			=>	'edit_posts',
-				'args'			=>	array('value_1' => 'Значение 1', '2' => 'Значение 2', 'Значение_3' => 'Значение 3' ) // элементы списка задаются через массив args, по типу value=>лейбл
+				'id'			=>	'marketing_display',
+				'title'			=>	__('Чи показувати контактну інформацію цього віддіу?', 'oxygen'),
+				'type'			=>	'checkbox',
+				'desc'			=>	__('якщо бажаєте то поставте/або зніміть відмітку', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+
+			array(
+				'id'			=>	'services_name',
+				'title'			=>	__('Назва відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть назву відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'services_email',
+				'title'			=>	__('E-mail відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть email відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'services_phone',
+				'title'			=>	__('Телефон відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть номер телефона відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'services_display',
+				'title'			=>	__('Чи показувати контактну інформацію цього віддіу?', 'oxygen'),
+				'type'			=>	'checkbox',
+				'desc'			=>	__('якщо бажаєте то поставте/або зніміть відмітку', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+
+			array(
+				'id'			=>	'reservation_name',
+				'title'			=>	__('Назва відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть назву відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'reservation_email',
+				'title'			=>	__('E-mail відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть email відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'reservation_phone',
+				'title'			=>	__('Телефон відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть номер телефона відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'reservation_display',
+				'title'			=>	__('Чи показувати контактну інформацію цього віддіу?', 'oxygen'),
+				'type'			=>	'checkbox',
+				'desc'			=>	__('якщо бажаєте то поставте/або зніміть відмітку', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+
+			array(
+				'id'			=>	'issues_name',
+				'title'			=>	__('Назва відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть назву відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'issues_email',
+				'title'			=>	__('E-mail відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть email відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'issues_phone',
+				'title'			=>	__('Телефон відділу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'desc'			=>	__('введіть номер телефона відділу', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'issues_display',
+				'title'			=>	__('Чи показувати контактну інформацію цього віддіу?', 'oxygen'),
+				'type'			=>	'checkbox',
+				'desc'			=>	__('якщо бажаєте то поставте/або зніміть відмітку', 'oxygen'),
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
 			)
 		)
 	),
 	array( // второй метабокс
-		'id'	=>	'meta2',
-		'name'	=>	'Доп. настройки 2',
+		'id'	=>	'google_map',
+		'name'	=>	__('Дані для Google крти', 'oxygen'),
 		'post'	=>	array('page'), // не только для постов, но и для страниц
 		'pos'	=>	'normal',
 		'pri'	=>	'high',
 		'cap'	=>	'edit_posts',
 		'args'	=>	array(
 			array(
-				'id'			=>	'featured',
-				'title'			=>	'На главную',
-				'desc'			=>	'Отображать пост на главной странице',
+				'id'			=>	'api_key',
+				'title'			=>	'API key',
+				'desc'			=>	__('введіть API key для Google карти', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'std'           =>  'YOUR_API_KEY',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'lat',
+				'title'			=>	__('Широта', 'oxygen'),
+				'desc'			=>	__('введіть координати - широту', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'std'           =>  '50.450912',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'lng',
+				'title'			=>	__('Довгота', 'oxygen'),
+				'desc'			=>	__('введіть координати - довготу', 'oxygen'),
+				'type'			=>	'text',
+				'placeholder'	=>	'',
+				'std'           =>  '30.522663',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'zoom',
+				'title'			=>	__('Зум карти', 'oxygen'),
+				'type'			=>	'select',
+				'desc'			=>	__('виберіть зручне наближення до карти', 'oxygen'),
+				'cap'			=>	'edit_posts',
+				'std'           =>  '5',
+				'args'			=>	array('8' => '8', '10' => '10', '12' => '12', '14' => '14', '15' => '15', '17' => '17') // элементы списка задаются через массив args, по типу value=>лейбл
+			),
+			array(
+				'id'			=>	'description',
+				'title'			=>	__('Додатковий опис', 'oxygen'),
+				'desc'			=>	__('введіть опис, який буде відображатися при кліку на мркер карти', 'oxygen'),
+				'type'			=>	'textarea',
+				'placeholder'	=>	'',
+				'std'           =>  '',
+				'cap'			=>	'edit_posts'
+			),
+			array(
+				'id'			=>	'display',
+				'title'			=>	__('Чи показувати карту?', 'oxygen'),
 				'type'			=>	'checkbox',
+				'desc'			=>	__('якщо бажаєте то поставте/або зніміть відмітку', 'oxygen'),
+				'std'           =>  '',
 				'cap'			=>	'edit_posts'
 			)
 		)
@@ -591,4 +749,9 @@ $options = array(
 foreach ($options as $option) {
 	$oxygenmetabox = new oxygenMetaBox($option);
 }
+
+//Registration translation rows for departments
+pll_register_string('Емейл', 'E-mail', 'Departments');
+pll_register_string('Телефон', 'Phone', 'Departments');
+
 ?>

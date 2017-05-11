@@ -1129,7 +1129,67 @@ input[type="submit"]:hover { cursor: pointer }
 .page-wrap .page #page-map {
 	width: 100%;
 	height: 260px;
-	margin-bottom: 10px;
+	margin-bottom: 25px;
+}
+.page-wrap .page #page-map #content {
+	font-size: 12px;
+	color: #000;
+	margin: 0 0 0 10px;
+}
+.page-wrap .page #page-map #content .firstHeading {
+	font-size: 15px;
+	text-transform: uppercase;
+}
+.page-wrap .page #page-map #content p {
+	padding: 0;
+	margin: 0 0 10px;
+}
+.page-wrap .page .content {
+	font-size: 12px;
+	color: #fff;
+}
+.page-wrap .page .content h1,
+.page-wrap .page .content h2,
+.page-wrap .page .content h3,
+.page-wrap .page .content h4{
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #fff;
+	margin: 0 0 7px;
+}
+.page-wrap .page .content ul,
+.page-wrap .page .content li {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	line-height: 1;
+}
+.page-wrap .page .content li {
+	margin: 0 0 7px;
+}
+.page-wrap .page .content li:last-child {
+	margin: 0;
+}
+.aside .page-description .department-box {
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	margin-bottom: 25px;
+}
+.aside .page-description .department-box h3 {
+	margin: 0 0 5px;
+	font-size: 12px;
+	color: #fff;
+}
+.aside .page-description .department-box p {
+	margin: 0 0 3px;
+	padding: 0;
+}
+.aside .page-description .department-box p:last-child {
+	margin: 0;
+}
+.aside .page-description .department-box p span {
+	color: #b6b6b6;
 }
 
 /* Home

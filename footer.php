@@ -76,36 +76,50 @@
 
     <?php if ( is_page_template( 'page-contacts.php' ) ) : ?>
 
-        <script>
-            // Google map
-            function initMap() {
-                var LatLng = {lat: 50.511599, lng: 30.509396};
-                var map = new google.maps.Map(document.getElementById('page-map'), {
-                    zoom: 17,
-                    center: LatLng
-                });
-                var contentString = '<div id="content">'+
-                    '<h1 id="firstHeading" class="firstHeading"><?php bloginfo( 'name' ); ?></h1>'+
-                    '<div id="bodyContent">'+
-                    '<img class="img-responsive" src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="<?php the_title();?>" title="<?php the_title();?>">'+
-                    '<p><b>Il Gatto Rosso</b>, итальянская кухня для всех и каждого.</p>'+
-                    '</div>'+
-                    '</div>';
-                var infowindow = new google.maps.InfoWindow({
-                    content: contentString
-                });
-                var marker = new google.maps.Marker({
-                    position: LatLng,
-                    map: map,
-                    title: '<?php bloginfo( 'name' ); ?>' + ' - ' + '<?php bloginfo( 'description' ); ?>'
-                });
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
-            }
-        </script>
+        <?php if ( get_post_meta($post->ID, 'google_map_display', true) ) : ?>
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLsSgR4H4-1WlsSjt24EiXMXx4s9ptseA&callback=initMap" type="text/javascript"></script>
+            <?php
+
+                $api_key = get_post_meta($post->ID, 'google_map_api_key', true);
+                $lat = get_post_meta($post->ID, 'google_map_lat', true);
+                $lng = get_post_meta($post->ID, 'google_map_lng', true);
+                $zoom = get_post_meta($post->ID, 'google_map_zoom', true);
+                $description = get_post_meta($post->ID, 'google_map_description', true);
+
+            ?>
+
+            <script>
+                // Google map
+                function initMap() {
+                    var LatLng = {lat: <?php echo $lat; ?>, lng: <?php echo $lng; ?>};
+                    var map = new google.maps.Map(document.getElementById('page-map'), {
+                        zoom: <?php echo $zoom; ?>, // 17
+                        center: LatLng
+                    });
+                    var contentString = '<div id="content">'+
+                        '<h1 id="firstHeading" class="firstHeading"><?php bloginfo( 'name' ); ?></h1>'+
+                        '<div id="bodyContent">'+
+                        '<p><?php bloginfo( 'name' ); ?>, <?php bloginfo( 'description' ); ?></p>'+
+                        '<p><?php echo $description; ?></p>'+
+                        '</div>'+
+                        '</div>';
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    var marker = new google.maps.Marker({
+                        position: LatLng,
+                        map: map,
+                        title: '<?php bloginfo( 'name' ); ?>' + ' - ' + '<?php bloginfo( 'description' ); ?>'
+                    });
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
+                    });
+                }
+            </script>
+
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api_key;?>&callback=initMap" type="text/javascript"></script>
+
+        <?php endif; ?>
 
     <?php endif; ?>
 

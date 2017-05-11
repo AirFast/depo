@@ -25,7 +25,58 @@ get_header(); // Loads the header.php template. ?>
 
                         <?php while ( have_posts() ) : the_post(); ?>
 
-                            <?php echo get_post_meta($post->ID, 'departments_marketing', true); ?>
+                            <?php
+                                $email = pll__( 'E-mail' );
+                                $phone = pll__( 'Phone' );
+                            ?>
+
+                            <?php if ( get_post_meta($post->ID, 'departments_marketing_display', true) ) : ?>
+
+                                <div class="department-box">
+
+                                    <h3><?php echo get_post_meta($post->ID, 'departments_marketing_name', true); ?></h3>
+                                    <p><span><?php echo $email . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_marketing_email', true); ?></p>
+                                    <p><span><?php echo $phone . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_marketing_phone', true); ?></p>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                            <?php if ( get_post_meta($post->ID, 'departments_services_display', true) ) : ?>
+
+                                <div class="department-box">
+
+                                    <h3><?php echo get_post_meta($post->ID, 'departments_services_name', true); ?></h3>
+                                    <p><span><?php echo $email . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_services_email', true); ?></p>
+                                    <p><span><?php echo $phone . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_services_phone', true); ?></p>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                            <?php if ( get_post_meta($post->ID, 'departments_reservation_display', true) ) : ?>
+
+                                <div class="department-box">
+
+                                    <h3><?php echo get_post_meta($post->ID, 'departments_reservation_name', true); ?></h3>
+                                    <p><span><?php echo $email . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_reservation_email', true); ?></p>
+                                    <p><span><?php echo $phone . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_reservation_phone', true); ?></p>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                            <?php if ( get_post_meta($post->ID, 'departments_issues_display', true) ) : ?>
+
+                                <div class="department-box">
+
+                                    <h3><?php echo get_post_meta($post->ID, 'departments_issues_name', true); ?></h3>
+                                    <p><span><?php echo $email . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_issues_email', true); ?></p>
+                                    <p><span><?php echo $phone . ' '; ?></span><?php echo get_post_meta($post->ID, 'departments_issues_phone', true); ?></p>
+
+                                </div>
+
+                            <?php endif; ?>
 
                         <?php endwhile; ?>
 
@@ -59,7 +110,11 @@ get_header(); // Loads the header.php template. ?>
 
                                 </div>
 
-                                <div id="page-map"></div>
+                                <?php if ( get_post_meta($post->ID, 'google_map_display', true) ) : ?>
+
+                                    <div id="page-map"></div>
+
+                                <?php endif; ?>
 
                                 <div class="content">
 
