@@ -754,4 +754,57 @@ foreach ($options as $option) {
 pll_register_string('Емейл', 'E-mail', 'Departments');
 pll_register_string('Телефон', 'Phone', 'Departments');
 
+// AJAX get post
+add_action( 'wp_ajax_load_more',        'load_posts' ); // For logged in users
+add_action( 'wp_ajax_nopriv_load_more', 'load_posts' ); // For anonymous users
+
+function load_posts(){
+	$args = unserialize(stripslashes($_POST['query']));
+	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['post_status'] = 'publish';
+	$q = new WP_Query($args);
+	if( $q->have_posts() ):
+		while($q->have_posts()): $q->the_post();
+			?>
+			<div id="post-<?php echo $q->post->ID ?>" class="post-<?php echo $q->post->ID ?> hentry">
+				<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php echo $q->post->post_title ?></a></h2>
+				<div class="entry-meta">
+					<span class="meta-prep meta-prep-author">Опубликовано</span> <span class="entry-date"><?php the_time('j M Y') ?></span></a>
+					<span class="meta-sep">автором</span>
+					<span class="author vcard"><?php the_author_link(); ?> </span>
+				</div>
+				<div class="entry-content"><p style="text-align: center;"><?php the_content() ?></p></div>
+				<div class="entry-utility">
+					<span class="cat-links">
+					<span class="entry-utility-prep entry-utility-prep-cat-links">Рубрика:</span> <?php the_category(', '); ?></span>
+					<span class="meta-sep">|</span>
+					<span class="comments-link"><a href="<?php the_permalink() ?>#comments">Комментарии (<?php echo $q->post->comment_count ?>)</a></span>
+				</div>
+			</div>
+			<?php
+		endwhile;
+	endif;
+	wp_reset_postdata();
+	die();
+}
+
+function js_variables(){
+    $variables = array (
+        'ajax_url' => admin_url('admin-ajax.php'),
+        //'is_mobile' => wp_is_mobile()
+        // Тут обычно какие-то другие переменные
+    );
+    echo(
+        '<script type="text/javascript">window.wp_data = ' .
+        json_encode($variables) .
+        ';</script>'
+    );
+}
+add_action('wp_head','js_variables');
+
+function load_more_scripts() {
+ 	wp_enqueue_script( 'load_more', get_stylesheet_directory_uri() . '/libs/ajax/load-more.js', array('jquery') );
+}
+
+add_action( 'wp_enqueue_scripts', 'load_more_scripts' );
 ?>

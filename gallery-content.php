@@ -49,6 +49,14 @@ $postCount = 0; ?>
 
             </div><!-- #gallery-content -->
 
+            <?php if (  $loop->max_num_pages > 1 ) : ?>
+                <script>
+                    var posts = '<?php echo serialize($loop->query_vars); ?>';
+                    var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
+                    var max_pages = '<?php echo $loop->max_num_pages; ?>';
+                </script>
+            <?php endif; ?>
+
             <div class="btn more-content">
                 <button id="button">Більше фото</button>
             </div>
