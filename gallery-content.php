@@ -8,6 +8,7 @@ $cat_id = get_query_var('cat');
 
 $args = array(
     'cat' => $cat_id,
+    //'posts_per_page' => 5,
     'post_type' => 'oxygen_gallery',
     'meta_key' => '_oxygen_post_location',
     'meta_value' => 'gallery',
@@ -55,11 +56,12 @@ $postCount = 0; ?>
                     var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
                     var max_pages = '<?php echo $loop->max_num_pages; ?>';
                 </script>
-            <?php endif; ?>
 
-            <div class="btn more-content">
-                <button id="button">Більше фото</button>
-            </div>
+                <div class="btn more-content">
+                    <button id="button">Більше фото</button>
+                </div>
+
+            <?php endif; ?>
 
         </div><!-- .gallery-wrapper-->
 

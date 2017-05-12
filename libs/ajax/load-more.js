@@ -1,6 +1,6 @@
 jQuery(function($){
     $('#button').click(function(){
-        $(this).text('Загружаю...'); // изменяем текст кнопки, вы также можете добавить прелоадер
+        //$(this).text('Загружаю...'); // изменяем текст кнопки, вы также можете добавить прелоадер
         var data = {
             'action': 'load_more',
             'query': posts,
@@ -12,11 +12,11 @@ jQuery(function($){
             type:'POST', // тип запроса
             success:function(data){
                 if( data ) {
-                    $('#button').text('Загрузить ещё').before(data); // вставляем новые посты
+                    $('#gallery-content').append(data); // вставляем новые посты
                     current_page++; // увеличиваем номер страницы на единицу
-                    if (current_page == max_pages) $('#button').remove(); // если последняя страница, удаляем кнопку
+                    if (current_page == max_pages) $('.btn.more-content').remove(); // если последняя страница, удаляем кнопку
                 } else {
-                    $('#button').remove(); // если мы дошли до последней страницы постов, скроем кнопку
+                    $('.btn.more-content').remove(); // если мы дошли до последней страницы постов, скроем кнопку
                 }
             }
         });

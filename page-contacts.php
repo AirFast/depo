@@ -26,8 +26,10 @@ get_header(); // Loads the header.php template. ?>
                         <?php while ( have_posts() ) : the_post(); ?>
 
                             <?php
-                                $email = pll__( 'E-mail' );
-                                $phone = pll__( 'Phone' );
+                                if (function_exists('pll__')) {
+                                    $email = pll__('E-mail');
+                                    $phone = pll__('Phone');
+                                }
                             ?>
 
                             <?php if ( get_post_meta($post->ID, 'departments_marketing_display', true) ) : ?>

@@ -751,8 +751,10 @@ foreach ($options as $option) {
 }
 
 //Registration translation rows for departments
-pll_register_string('Емейл', 'E-mail', 'Departments');
-pll_register_string('Телефон', 'Phone', 'Departments');
+if (function_exists('pll_register_string')) {
+    pll_register_string('Емейл', 'E-mail', 'Departments');
+    pll_register_string('Телефон', 'Phone', 'Departments');
+}
 
 // AJAX get post
 add_action( 'wp_ajax_load_more',        'load_posts' ); // For logged in users
@@ -760,27 +762,19 @@ add_action( 'wp_ajax_nopriv_load_more', 'load_posts' ); // For anonymous users
 
 function load_posts(){
 	$args = unserialize(stripslashes($_POST['query']));
-	$args['paged'] = $_POST['page'] + 1; // следующая страница
+	$args['paged'] = $_POST['page'] + 1;
 	$args['post_status'] = 'publish';
+    $args['post_type'] = 'oxygen_gallery';
+    $args['meta_key'] = '_oxygen_post_location';
+    $args['meta_value'] = 'gallery';
+    $args['post__not_in'] = get_option( 'sticky_posts' );
 	$q = new WP_Query($args);
 	if( $q->have_posts() ):
 		while($q->have_posts()): $q->the_post();
 			?>
-			<div id="post-<?php echo $q->post->ID ?>" class="post-<?php echo $q->post->ID ?> hentry">
-				<h2 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php echo $q->post->post_title ?></a></h2>
-				<div class="entry-meta">
-					<span class="meta-prep meta-prep-author">Опубликовано</span> <span class="entry-date"><?php the_time('j M Y') ?></span></a>
-					<span class="meta-sep">автором</span>
-					<span class="author vcard"><?php the_author_link(); ?> </span>
-				</div>
-				<div class="entry-content"><p style="text-align: center;"><?php the_content() ?></p></div>
-				<div class="entry-utility">
-					<span class="cat-links">
-					<span class="entry-utility-prep entry-utility-prep-cat-links">Рубрика:</span> <?php the_category(', '); ?></span>
-					<span class="meta-sep">|</span>
-					<span class="comments-link"><a href="<?php the_permalink() ?>#comments">Комментарии (<?php echo $q->post->comment_count ?>)</a></span>
-				</div>
-			</div>
+			    <div class="secondary-img">
+                    <img class="img-responsive" src="<?php the_post_thumbnail_url( 'large' ); ?>" alt="<?php the_title();?>">
+                </div>
 			<?php
 		endwhile;
 	endif;

@@ -1037,6 +1037,7 @@ input[type="submit"]:hover { cursor: pointer }
 	text-align: center;
 }
 .gallery-wrapper .btn #button {
+	outline: none;
 	background: none;
 	border: 1px solid rgba(255,255,255, .5);
 	padding: 10px 20px;
