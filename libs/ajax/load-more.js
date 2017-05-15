@@ -1,6 +1,5 @@
 jQuery(function($){
     $('#button').click(function(){
-        //$(this).text('Загружаю...'); // изменяем текст кнопки, вы также можете добавить прелоадер
         var data = {
             'action': 'load_more',
             'query': posts,

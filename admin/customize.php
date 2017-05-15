@@ -34,9 +34,9 @@ function oxygen_customize_register( $wp_customize ) {
 		'priority'   => 30,
 	) );
 
-	/* Section: Miscellaneous */
+	/* Section: Slider */
 	$wp_customize->add_section( 'oxygen_misc' , array(
-		'title'      => __( 'Miscellaneous', 'oxygen' ),
+		'title'      => __( 'Slider', 'oxygen' ),
 		'priority'   => 190,
 	) );	
 
@@ -45,7 +45,7 @@ function oxygen_customize_register( $wp_customize ) {
 
 	/* Setting: Font Family */
 	$wp_customize->add_setting( 'oxygen_font_family' , array(
-		'default'     => 'Abel',
+		'default'     => 'Open Sans',
 		'capability'  => 'edit_theme_options',
 		'sanitize_callback' => 	'oxygen_font_family_sanitize'
 	) );	

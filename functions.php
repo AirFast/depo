@@ -181,10 +181,11 @@ function oxygen_scripts() {
 	
 	if ( !is_admin() ) {
 		
-		/* Enqueue Scripts */	
+		/* Enqueue Scripts */
+		wp_enqueue_script( 'oxygen_jquery', get_template_directory_uri() . '/libs/jquery-3.2.1.min.js', true );
 		wp_enqueue_script( 'oxygen_imagesloaded', get_template_directory_uri() . '/js/jquery.imagesloaded.js', array( 'jquery' ), '1.0', true );	
 		wp_enqueue_script( 'oxygen_masonry', get_template_directory_uri() . '/js/jquery.masonry.min.js', array( 'jquery' ), '1.0', true );	
-		wp_enqueue_script( 'oxygen_cycle', get_template_directory_uri() . '/js/cycle/jquery.cycle.min.js', array( 'jquery' ), '1.0', true );		
+		wp_enqueue_script( 'oxygen_cycle', get_template_directory_uri() . '/libs/owl-carousel-2/owl.carousel.min.js', array( 'jquery' ), '3.0', true );
 		wp_enqueue_script( 'oxygen_fitvids', get_template_directory_uri() . '/js/fitvids/jquery.fitvids.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'oxygen_navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20130301', true );		
 		wp_enqueue_script( 'oxygen_footer_scripts', get_template_directory_uri() . '/js/footer-scripts.js', array( 'jquery', 'oxygen_imagesloaded', 'oxygen_masonry', 'oxygen_cycle', 'oxygen_fancybox', 'oxygen_fitvids' ), '1.0', true );
@@ -752,8 +753,8 @@ foreach ($options as $option) {
 
 //Registration translation rows for departments
 if (function_exists('pll_register_string')) {
-    pll_register_string('Емейл', 'E-mail', 'Departments');
-    pll_register_string('Телефон', 'Phone', 'Departments');
+    pll_register_string('Емейл', 'E-mail:', 'Departments');
+    pll_register_string('Телефон', 'Phone:', 'Departments');
 }
 
 // AJAX get post

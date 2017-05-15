@@ -17,27 +17,20 @@ jqu( function () {
 			gutterWidth: width * 0.0425531914893617,
 			isResizable: true,
 		} );
-	} ); 		
-	
-	/* Cycle */
-	jqu( '#featured-content' ).cycle( {
-		slideExpr: '.featured-post',
-		fx: 'fade',
-		speed: 700,
-		timeout: slider_settings.timeout,
-		cleartypeNoBg: true,
-		pager: '#slide-thumbs',
-		slideResize:   false,
-		containerResize: true,
-		//width: '100%',
-		fit: 1,
-		prev: '#slider-prev',
-		next: '#slider-next',
-		pagerAnchorBuilder: function( idx, slide ) { 
-			// return selector string for existing anchor 
-			return '#slide-thumbs li:eq(' + idx + ') a'; 
-    	}
 	} );
+
+    /* Owl Carousel */
+    jqu('.owl-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',
+        autoplay: true,
+        autoplayTimeout: slider_settings.timeout,
+        autoplayHoverPause: true
+    });
 	
 	/* FitVids */
 	jqu( ".entry-content" ).fitVids();	
